@@ -1,7 +1,7 @@
 <form method="POST" action="/figures">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label for="figure[name]">Name:</label>
-  <input id="figure_name" type="text" name="figure[name]"/>
+  <input id="figure_name" type="text" name="figure[name]" value="<%=@figure.name%>"/>
   <h2>Titles</h2>
   <% @titles.each do |title| %>
     <input type="checkbox" <%= 'checked' if @figure.titles.include?(title)==true %> name="figure[title_ids][]" id="title_<%=title.id%>" value="<%=title.id%>"/>
