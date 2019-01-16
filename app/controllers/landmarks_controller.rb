@@ -35,6 +35,7 @@ class LandmarksController < ApplicationController
     @landmark=Landmark.find_by_id(@params[:id])
     @landmark.name=@params[:name]
     @landmark.year_completed=@params[:year_completed]
+    @landmark.save
     redirect "/landmarks/#{@figure.id}"
   end
 end
