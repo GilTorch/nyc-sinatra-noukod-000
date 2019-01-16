@@ -3,13 +3,13 @@
   <input id="figure_name" type="text" name="figure[name]"/>
   <h2>Titles</h2>
   <% @titles.each do |title| %>
-    <input type="checkbox" name="figure[title_ids][]" id="title_<%=title.id%>" value="<%=title.id%>"/>
+    <input type="checkbox" name="figure[title_ids][]" id="title_<%=title.id%>" value="<%=title.name%>"/>
   <% end %>
   <h2>Create A New Title</h2>
   <input id="new_title" type="text" name="title[name]" />
   <h2>Landmarks</h2>
   <% @landmarks.each do |landmark| %>
-    <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%=landmark.id%>" value="<%=landmark.id%>" />
+    <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%=landmark.id%>" value="<%=landmark.name%>" />
   <% end %>
   <h2>Create A New Landmark</h2>
   <input id="new_landmark" type="text" name="landmark[name]" />
