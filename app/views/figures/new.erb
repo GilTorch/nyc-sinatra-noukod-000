@@ -9,7 +9,7 @@
   <input type="text" name="title[name]" />
   <h2>Landmarks</h2>
   <% @landmarks.each do |landmark| %>
-    <input type="text" name="figure[landmark_ids][]" id="landmark_<%=landmark.id%>" value="<%=landmark.id%>" />
+    <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%=landmark.id%>" value="<%=landmark.id%>" />
   <% end %>
   <h2>Create A New Landmark</h2>
   <input type="text" name="landmark[name]" />
