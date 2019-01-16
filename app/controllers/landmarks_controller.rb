@@ -25,10 +25,7 @@ class LandmarksController < ApplicationController
   end
 
   post "/landmarks" do
-    @figure=Figure.new(@params[:figure])
-    @figure.titles << Title.create({name:@params[:title][:name]})
-    @figure.landmarks << Landmark.create({name:@params[:landmark][:name]})
-    @figure.save
+    @landmark=Landmark.create(@params[:landmark])
 
     redirect "/landmarks/#{@figure.id}"
 
