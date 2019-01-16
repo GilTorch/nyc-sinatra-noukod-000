@@ -11,6 +11,9 @@ class FiguresController < ApplicationController
     @figure.titles << Title.create({name:@params[:title][:name]})
     @figure.landmarks << Landmark.create({name:@params[:landmark][:name]})
     @figure.save
+
+    redirect "/figures/#{@landmark.id}"
+    
   end
 
 end
