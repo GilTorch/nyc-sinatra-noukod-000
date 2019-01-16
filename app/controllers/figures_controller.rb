@@ -6,6 +6,11 @@ class FiguresController < ApplicationController
     erb :"figures/new"
   end
 
+  get "/figures" do 
+    @figure=Figure.all 
+    erb :"figures/index"
+  end
+
   post "/figures" do
     @figure=Figure.new(@params[:figure])
     @figure.titles << Title.create({name:@params[:title][:name]})
