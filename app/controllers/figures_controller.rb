@@ -36,6 +36,7 @@ class FiguresController < ApplicationController
 
   patch "/figures/:id" do
     @figure=Figure.find_by_id(@params[:id])
+    @figure.name=@params[:figure][:name]
     @figure.titles << Title.create({name:@params[:title][:name]})
     @figure.landmarks << Landmark.create({name:@params[:landmark][:name]})
     @figure.save
