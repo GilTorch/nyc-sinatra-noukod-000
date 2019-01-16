@@ -1,46 +1,46 @@
 class LandmarksController < ApplicationController
   # add controller methods
-  get "/lanmarks/new" do
+  get "/landmarks/new" do
     @titles=Title.all
     @landmarks=Landmark.all
-    erb :"lanmarks/new"
+    erb :"landmarks/new"
   end
 
-  get "/lanmarks/:id/edit" do
+  get "/landmarks/:id/edit" do
     @figure=Figure.find_by_id(@params[:id])
     @titles=Title.all
     @landmarks=Landmark.all
-    erb :"lanmarks/edit"
+    erb :"landmarks/edit"
   end
 
-  get "/lanmarks/:id" do
+  get "/landmarks/:id" do
     @figure=Figure.find_by_id(@params[:id])
 
-    erb :"lanmarks/show"
+    erb :"landmarks/show"
   end
 
-  get "/lanmarks" do
+  get "/landmarks" do
     @figures=Figure.all
-    erb :"lanmarks/index"
+    erb :"landmarks/index"
   end
 
-  post "/lanmarks" do
+  post "/landmarks" do
     @figure=Figure.new(@params[:figure])
     @figure.titles << Title.create({name:@params[:title][:name]})
     @figure.landmarks << Landmark.create({name:@params[:landmark][:name]})
     @figure.save
 
-    redirect "/lanmarks/#{@figure.id}"
+    redirect "/landmarks/#{@figure.id}"
 
   end
 
-  patch "/lanmarks/:id" do
+  patch "/landmarks/:id" do
     @figure=Figure.find_by_id(@params[:id])
     @figure.name=@params[:figure][:name]
     @figure.titles << Title.create({name:@params[:title][:name]})
     @figure.landmarks << Landmark.create({name:@params[:landmark][:name]})
     @figure.save
 
-    redirect "/lanmarks/#{@figure.id}"
+    redirect "/landmarks/#{@figure.id}"
   end
 end
